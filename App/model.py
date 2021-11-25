@@ -28,14 +28,56 @@
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.ADT import map as mp
+from DISClib.ADT.graph import gr
 from DISClib.DataStructures import mapentry as me
 from DISClib.Algorithms.Sorting import shellsort as sa
 assert cf
 
+
+def newtamplate ():
+    template = {
+        "digraph" : None,
+        "nodigraph" : None
+    }
+    template["digraph"] = gr.newGraph(datastructure="ADJ_LIST", directed= True, size = 13000, comparefunction = compare)
+    template["nodigraph"] = gr.newGraph(datastructure="ADJ_LIST", directed= False, size = 13000, comparefunction = compare)
+    return(template)
+
+def addconection(template, serv):
+    origen = serv["Departure"]
+    destino = serv["Destination"]
+    distancia = serv["distance_km"]
+    addvertice(template, origen)
+    addvertice(template, destino)
+    addcon(template, origen, destino, distancia)
+    return(template)
+
+
+def addvertice(template, origen):
+    if not gr.containsVertex(template["digraph"], origen):
+        gr.insertVertex(template["digraph"], origen)
+    return(template)
+
+def addcon(template,origen,destino,distancia):
+    edge = gr.getEdge(template['digraph'], origen, destino)
+    if edge is None:
+        gr.addEdge(template['digraph'],origen,destino, distancia)
+    return(template)
 """
 Se define la estructura de un catálogo de videos. El catálogo tendrá dos listas, una para los videos, otra para las categorias de
 los mismos.
 """
+def compare(route1, route2):
+    """
+    Compara dos rutas
+    """
+    route2 = route2["key"]
+    if (route1 == route2):
+        return 0
+    elif (route1 > route2):
+        return 1
+    else:
+        return -1
 
 # Construccion de modelos
 

@@ -24,7 +24,16 @@ import config as cf
 import model
 import csv
 
+def newtemplate():
+    return(model.newtamplate())
 
+def loaddata(template):
+    servicesfile = cf.data_dir + "routes_full.csv"
+    input_file = csv.DictReader(open(servicesfile, encoding="utf-8"),
+                                delimiter=",")
+
+    for service in input_file:
+        model.addconection(template, service)
 """
 El controlador se encarga de mediar entre la vista y el modelo.
 """

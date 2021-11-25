@@ -23,6 +23,7 @@
 import config as cf
 import sys
 import controller
+from DISClib.ADT.graph import gr
 from DISClib.ADT import list as lt
 assert cf
 
@@ -49,7 +50,10 @@ while True:
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
-
+        template = controller.newtemplate()
+        a = controller.loaddata(template)
+        print(gr.numVertices(template["digraph"]))
+        print(gr.numEdges(template["digraph"]))
     elif int(inputs[0]) == 2:
         pass
 
