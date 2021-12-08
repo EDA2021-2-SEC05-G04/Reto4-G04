@@ -28,12 +28,23 @@ def newtemplate():
     return(model.newtamplate())
 
 def loaddata(template):
-    servicesfile = cf.data_dir + "routes_full.csv"
+    servicesfile = cf.data_dir + "routes-utf8-small.csv"
     input_file = csv.DictReader(open(servicesfile, encoding="utf-8"),
                                 delimiter=",")
 
     for service in input_file:
         model.addconection(template, service)
+
+def loadair(template):
+    servicesfile = cf.data_dir + "airports-utf8-small.csv"
+    input_file = csv.DictReader(open(servicesfile, encoding="utf-8"),
+                                delimiter=",")
+    for service in input_file:
+        model.addairport(template,service)
+
+def req1(template):
+    i = model.req1(template)
+    return(i)
 """
 El controlador se encarga de mediar entre la vista y el modelo.
 """

@@ -52,9 +52,12 @@ while True:
         print("Cargando información de los archivos ....")
         template = controller.newtemplate()
         a = controller.loaddata(template)
+        controller.loadair(template)
         print(gr.numVertices(template["digraph"]))
         print(gr.numEdges(template["digraph"]))
     elif int(inputs[0]) == 2:
+        masv = controller.req1(template)
+        print(masv)
         pass
 
     else:
