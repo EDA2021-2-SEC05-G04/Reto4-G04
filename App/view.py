@@ -86,7 +86,7 @@ while True:
         for i in range(1,4):
             element=lt.getElement(lista_afectados,i)
             table.add_row([element["IATA"],element["Name"],element["City"],element["Country"]])
-        for i in range(lt.size(lista_afectados)-3,lt.size(lista_afectados)+1):
+        for i in range(lt.size(lista_afectados)-2,lt.size(lista_afectados)+1):
             element=lt.getElement(lista_afectados,i)
             table.add_row([element["IATA"],element["Name"],element["City"],element["Country"]])
         print(table)

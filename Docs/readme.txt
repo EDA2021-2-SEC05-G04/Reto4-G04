@@ -1,1 +1,1 @@
-Responder preguntas y marcar con el nombre de los integrantes
+Miguel Corredor 201211558 y Tomas Pardo
