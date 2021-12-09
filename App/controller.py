@@ -33,7 +33,6 @@ def loaddata(template):
     servicesfile = cf.data_dir + "routes-utf8-small.csv"
     input_file = csv.DictReader(open(servicesfile, encoding="utf-8"),
                                 delimiter=",")
-
     for service in input_file:
         model.addconection(template, service)
 def loadcity(template):
@@ -43,6 +42,8 @@ def loadcity(template):
     for service in input_file:
         model.addcity(template, service)
 
+def loadNODIGRAPH(template):
+    return model.loadNODIGRAPH(template)
 def loadair(template):
     servicesfile = cf.data_dir + "airports-utf8-small.csv"
     input_file = csv.DictReader(open(servicesfile, encoding="utf-8"),
@@ -53,6 +54,12 @@ def loadair(template):
 def req1(template):
     i = model.req1(template)
     return(i)
+def fuertementeConectados(catalog,Aeropuerto1,Aeropuerto2):
+    return model.fuertementeConectados(catalog,Aeropuerto1,Aeropuerto2)
+def MST(catalog,Salida,millas):
+    return model.MST(catalog,Salida,millas)
+def fueraDeFuncionamiento(catalog,Aeropuerto):
+    return model.fueraDeFuncionamiento(catalog,Aeropuerto)
 """
 El controlador se encarga de mediar entre la vista y el modelo.
 """
