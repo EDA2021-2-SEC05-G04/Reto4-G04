@@ -70,7 +70,7 @@ while True:
         path = model.req3(template,partida,llegada,analyzer)
         print(path)
         pass
-
+    elif int(inputs[0]) == 4:
         Aeropuerto1=input("Aeropuerto 1 IATA:")
         Aeropuerto2=input("Aeropuerto 2 IATA:")
         print(Aeropuerto1+" y "+Aeropuerto2,"¿Están fuertemente conectados?---",controller.fuertementeConectados(template,Aeropuerto1,Aeropuerto2))
