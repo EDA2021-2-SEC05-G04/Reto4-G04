@@ -22,6 +22,7 @@
 
 import config as cf
 import sys
+import model
 import controller
 from DISClib.ADT.graph import gr
 from DISClib.ADT import list as lt
@@ -53,11 +54,18 @@ while True:
         template = controller.newtemplate()
         a = controller.loaddata(template)
         controller.loadair(template)
+        controller.loadcity(template)
+        analyzer = controller.initanalizer()
         print(gr.numVertices(template["digraph"]))
         print(gr.numEdges(template["digraph"]))
     elif int(inputs[0]) == 2:
         masv = controller.req1(template)
         print(masv)
+    elif int(inputs[0]) == 3:
+        partida = input("ingrese ciudad de partida")
+        llegada = input("ingrese ciudad de llgadad")
+        path = model.req3(template,partida,llegada,analyzer)
+        print(path)
         pass
 
     else:

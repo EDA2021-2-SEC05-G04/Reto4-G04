@@ -26,7 +26,9 @@ import csv
 
 def newtemplate():
     return(model.newtamplate())
-
+def initanalizer ():
+    a = model.analizer()
+    return(a)
 def loaddata(template):
     servicesfile = cf.data_dir + "routes-utf8-small.csv"
     input_file = csv.DictReader(open(servicesfile, encoding="utf-8"),
@@ -34,6 +36,12 @@ def loaddata(template):
 
     for service in input_file:
         model.addconection(template, service)
+def loadcity(template):
+    servicesfile = cf.data_dir + "worldcities-utf8.csv"
+    input_file = csv.DictReader(open(servicesfile, encoding="utf-8"),
+                                delimiter=",")
+    for service in input_file:
+        model.addcity(template, service)
 
 def loadair(template):
     servicesfile = cf.data_dir + "airports-utf8-small.csv"
