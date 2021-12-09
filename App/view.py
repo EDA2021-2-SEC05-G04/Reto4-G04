@@ -83,6 +83,7 @@ while True:
         table=PrettyTable()
         table.field_names=["IATA","NAME","CITY","COUNTRY"]
         print("Hay una cantidad de",lt.size(lista_afectados),"aeropuertos afectados.")
+        print("Primeros 3 y últimos 3")
         for i in range(1,4):
             element=lt.getElement(lista_afectados,i)
             table.add_row([element["IATA"],element["Name"],element["City"],element["Country"]])
